@@ -1,0 +1,234 @@
+$bg: #E2ECF5
+$border: #6E9ECF
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: 'Open Sans', sans-serif
+
+
+main
+  margin: 50px 50px
+  // position: relative
+  .calendar
+    width: 250px
+    position: relative
+    .time-section
+      width: 100%
+      border-top: 1px solid #ccc
+      height: 120px
+      &:last-child
+        height: 30px
+        .time-view span
+          font-size: 16px !important
+          line-height: 16px !important
+      .time-view
+        width: 50px
+        height: 50%
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        flex-direction: column
+        align-items: center
+        &:last-child
+          span
+            font-size: 12px
+            line-height: 12px
+        span
+          color: #aaa
+          font-size: 16px
+          line-height: 16px
+
+    .tasks
+      position: absolute
+      width: 200px
+      top: 0
+      left: 50px
+      .task
+        position: absolute
+        background-color: $bg
+        border-left: 2px solid $border
+        padding: 5px
+        &:hover
+          .del
+            opacity: 1
+          h2
+            opacity: 0
+        .del
+          position: absolute
+          width: 100%
+          height: 100%
+          left: 0
+          top: 0
+          background-color: rgba(0, 0, 0, .3)
+          display: -webkit-flex
+          display: -ms-flex
+          display: flex
+          align-items: center
+          justify-content: center
+          font-size: 15px
+          cursor: pointer
+          transition: all .15s ease
+          opacity: 0
+          z-index: 3
+          user-select: none
+        h2
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+          font-size: 14px
+          user-select: none
+          transition: all .15s ease
+
+.addEvent
+  position: fixed
+  left: 320px
+  top: 70px
+  cursor: pointer
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  border: 1px solid #ccc
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all .15s ease
+  &:hover
+    border-color: $border
+    span
+      color: $border
+      transform: rotate(90deg)
+  span
+    margin-bottom: 1px
+    padding-bottom: 2px
+    transition: all .15s ease
+    font-size: 22px
+    color: #aaa
+
+form
+  position: fixed
+  width: 250px
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  flex-wrap: wrap
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  border: 1px solid #999
+  border-radius: 5px
+  padding: 5px 10px
+  justify-content: space-between
+  .close
+    position: absolute
+    right: -20px
+    top: 0
+    width: 16px
+    height: 16px
+    cursor: pointer
+    &:hover
+      &::after
+        transform: rotate(225deg)
+      &::before
+        transform: rotate(-225deg)
+    &::after, &::before
+      content: ''
+      position: absolute
+      width: 18px
+      height: 2px
+      background-color: #777
+      top: 50%
+      left: 0
+      transition: all .25s ease
+    &:after
+      transform: rotate(45deg)
+    &:before
+      transform: rotate(-45deg)
+  input
+    width: 45%
+    padding: 2px 5px
+    font-size: 14px
+    border-radius: 5px
+    border: 1px solid #aaa
+    margin: 5px 0
+    outline: none
+    transition: all .15s ease
+    &:focus
+      border-color: $border
+    &[type="submit"]
+      cursor: pointer
+      &:hover
+        transform: scale(.97)
+      &:active
+        transform: scale(.95)
+
+.varningWind
+  position: fixed
+  width: 250px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  border: 1px solid #999
+  border-radius: 5px
+  padding: 10px
+  text-align: center
+  span
+    font-size: 16px
+    line-height: 20px
+    display: inline-block
+
+.json-conv
+  display: block
+  text-align: center
+  span
+    font-size: 15px
+    padding: 2px 10px
+    font-weight: lighter
+    border: 1px solid #999
+    border-radius: 5px
+    cursor: pointer
+    display: inline-block
+    transition: all .15s ease
+    &:hover
+      transform: translate(0, 5px)
+      padding: 2px 8px
+  .show-json
+    position: fixed
+    left: 50%
+    top: 50%
+    border-radius: 10px
+    transform: translate(-50%, -50%)
+    background-color: #f1f1f1
+    width: 500px
+    padding: 20px
+    border: 1px solid #999
+    .close
+      position: absolute
+      right: -20px
+      top: 0
+      width: 16px
+      height: 16px
+      cursor: pointer
+      &:hover
+        &::after
+          transform: rotate(225deg)
+        &::before
+          transform: rotate(-225deg)
+      &::after, &::before
+        content: ''
+        position: absolute
+        width: 18px
+        height: 2px
+        background-color: #777
+        top: 50%
+        transition: all .25s ease
+        left: 0
+      &:after
+        transform: rotate(45deg)
+      &:before
+        transform: rotate(-45deg)
