@@ -20,8 +20,15 @@ module.exports = function (req, res) {
       if(event[i].widthLeft === 2) left = 1;
     };
 
+    function randomId() {
+      let rand = Math.round(Math.random() * 10 * Math.random() * 100 / Math.random());
+      if(event.includes(rand)) {
+        randomId();
+      } else return rand;
+    };
+
     event.push({
-      id: event.length + 1,
+      id: randomId(),
       start: x,
       duration: Number(req.body.duration),
       title: req.body.title,

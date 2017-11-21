@@ -21,6 +21,13 @@ module.exports = function (req, res) {
   if (Number(reg[0]) >= 17 || Number(reg[0]) < 8 || y > 540 || a.length >= 2) {
     res.send(_extends({}, _index2.default, { varningWind: true }));
   } else {
+    var randomId = function randomId() {
+      var rand = Math.round(Math.random() * 10 * Math.random() * 100 / Math.random());
+      if (event.includes(rand)) {
+        randomId();
+      } else return rand;
+    };
+
     var i = event.indexOf(a[0]);
     var left = a.length + 1;
     if (i !== -1) {
@@ -28,8 +35,10 @@ module.exports = function (req, res) {
       if (event[i].widthLeft === 2) left = 1;
     };
 
+    ;
+
     event.push({
-      id: event.length + 1,
+      id: randomId(),
       start: x,
       duration: Number(req.body.duration),
       title: req.body.title,

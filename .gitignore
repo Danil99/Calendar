@@ -1,4 +1,6 @@
-/node_modules/
+Front-end/node_modules/
+Back-end/node_modules/
+
 /.git/
 *.DS_Store
 yarn.lock
