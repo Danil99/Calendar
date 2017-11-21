@@ -62,7 +62,7 @@ class AddEvent extends Component {
       )
     } else {
       return (
-        <div className="varningWind">
+        <div className="varning-wind">
           <span>{this.state.mess}</span>
         </div>
       )
@@ -76,7 +76,7 @@ class AddEvent extends Component {
           <span>+</span>
         </div>
 
-        { this.state.formShow ? this.form() : null }
+        { this.state.formShow && this.form() }
 
       </section>
     )

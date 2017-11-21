@@ -19,7 +19,7 @@ module.exports = {
         test: /\.sass$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          'use': 'css-loader!sass-loader'
+          use: 'css-loader!sass-loader'
         })
       }
     ]
@@ -33,5 +33,10 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('./css/styles.css')
-  ]
+  ],
+
+  node: {
+    net: 'empty',
+    dns: 'empty'
+  }
 }

@@ -15,7 +15,7 @@ class ShowJSON extends React.Component {
         <span onClick={() => this.setState({show: true})}>Get JSON</span>
 
         {
-          this.state.show ?
+          this.state.show &&
             <div className="show-json">
               <div className="close" onClick={() => this.setState({show: false})}></div>
               {
@@ -28,8 +28,6 @@ class ShowJSON extends React.Component {
                 }))
               }
             </div>
-              :
-                null
         }
       </div>
     )
